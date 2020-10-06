@@ -17,8 +17,8 @@
     crossorigin=""></script>
 
   <!--Mapbox-->
-  <script
-    src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.2.0/mapbox-gl-geocoder.min.js'></script>
+  <script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.2.0/mapbox-gl-geocoder.min.js'>
+  </script>
   <link rel='stylesheet'
     href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.2.0/mapbox-gl-geocoder.css'
     type='text/css' />
@@ -28,30 +28,31 @@
 <body>
   <header>
     <h1>IP Address Tracker</h1>
-    <form class="locationDetails">
-      <input type="search" name="" id="">
-      <button type="submit"><img src="./images/icon-arrow.svg" /></button>
-    </form>
-    <div class="hero">
-      <div class="ipaddress">
-        <h2>IP Address</h2>
-        <h3 class="ip"></h3>
-      </div>
-      <div class="ipaddress">
-        <h2>Location</h2>
-        <h3 class="location"></h3>
-      </div>
-      <div class="ipaddress">
-        <h2>Timezone</h2>
-        <h3 class="time"></h3>
-      </div>
-      <div class="ipaddress">
-        <h2>UTC</h2>
-        <h3 class="utc"></h3>
-      </div>     
-     
-    </div>
+    <div class="container">
+      <form class="locationDetails">
+        <input type="search" name="" id="">
+        <button type="submit"><img src="./images/icon-arrow.svg" /></button>
+      </form>
+      <div class="hero">
+        <div class="ipaddress">
+          <h2>IP Address</h2>
+          <h3 class="ip"></h3>
+        </div>
+        <div class="ipaddress">
+          <h2>Location</h2>
+          <h3 class="location"></h3>
+        </div>
+        <div class="ipaddress">
+          <h2>Timezone</h2>
+          <h3 class="time"></h3>
+        </div>
+        <div class="ipaddress">
+          <h2>ISP</h2>
+          <h3 class="isp"></h3>
+        </div>
 
+      </div>
+    </div>
   </header>
   <main>
     <div id="mapid"></div>
@@ -64,7 +65,7 @@
 
   Search for any IP address or domain
 
- 
+
   <!-- add offset value dynamically using the API -->
   ISP
   <script src="main.js"></script>
