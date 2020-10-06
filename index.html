@@ -10,20 +10,47 @@
   <link rel="stylesheet" href="./styles/style.css">
   <title>Frontend Mentor | IP Address Tracker</title>
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
-   integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
-   crossorigin=""/>
-   <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
-   integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
-   crossorigin=""></script>
+    integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+    crossorigin="" />
+  <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+    integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+    crossorigin=""></script>
+
+  <!--Mapbox-->
+  <script
+    src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.2.0/mapbox-gl-geocoder.min.js'></script>
+  <link rel='stylesheet'
+    href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.2.0/mapbox-gl-geocoder.css'
+    type='text/css' />
 
 </head>
 
 <body>
   <header>
+    <h1>IP Address Tracker</h1>
     <form class="locationDetails">
       <input type="search" name="" id="">
-      <button type="submit">Submit</button>
+      <button type="submit"><img src="./images/icon-arrow.svg" /></button>
     </form>
+    <div class="hero">
+      <div class="ipaddress">
+        <h2>IP Address</h2>
+        <h3 class="ip"></h3>
+      </div>
+      <div class="ipaddress">
+        <h2>Location</h2>
+        <h3 class="location"></h3>
+      </div>
+      <div class="ipaddress">
+        <h2>Timezone</h2>
+        <h3 class="time"></h3>
+      </div>
+      <div class="ipaddress">
+        <h2>UTC</h2>
+        <h3 class="utc"></h3>
+      </div>     
+     
+    </div>
 
   </header>
   <main>
@@ -31,16 +58,13 @@
 
   </main>
   <div class="infor">
-    
+
   </div>
-  IP Address Tracker
+
 
   Search for any IP address or domain
 
-  IP Address
-  Location
-  Timezone
-  UTC
+ 
   <!-- add offset value dynamically using the API -->
   ISP
   <script src="main.js"></script>

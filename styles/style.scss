@@ -6,25 +6,63 @@
 header {
     background-image: url("../images/pattern-bg.png");
     background-repeat: no-repeat;
+    background-size: cover;
     width: 100%;
     height: 300px;
+    h1 {
+        color: white;
+        text-align: center;
+        padding-top: 26px;
+        font-size: 26px;
+        padding-bottom: 26px;
+    }
+    .hero {
+        width: 77%;
+        margin: auto;
+        /* text-align: center; */
+        background-color: white;
+        display: flex;
+        align-items: center;
+        /* justify-content: center; */
+        flex-wrap: nowrap;
+        flex-direction: column;
+        row-gap: 40px;
+        position: absolute;
+        z-index: 2; 
+        left: 12%;
+        margin-top: 30px;
+        border-radius: 16px;
+        padding: 15px;
+    }
+    
 }
 
 main {
-    #mapid { height: 500px; }
-    margin-top: -50px;
+    #mapid {
+         height: 500px;
+         z-index: 1;
+         }  
 }
 form.locationDetails {
+    width: 327px;
+    position: relative;
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    justify-content: center;
     row-gap: 10px;
+    margin: auto;
 }
 button {
-    width: 50%;
+    position: relative;
+    width: 12%;
     padding: 10px;
+    background-color: black;
+    right: 40px;
+    border-bottom-right-radius: 10px;
+    border-top-right-radius: 10px;
 }
 input[type="search"] {
-    width: 50%;
+    width: 90%;
     padding: 10px;
+    border-radius: 10px;
+    margin: auto;
 }
