@@ -65,6 +65,12 @@ async function getAddress2(iptracker) {
     const marker = L.marker([lat, lng]).addTo(mymap);
     // marker.flyTo([lat,lng]).addTo(mymap)
 
-    const ipLoc = document.querySelector(".ip")
+    const ipLoc = document.querySelector(".ip")   
+    const region = document.querySelector(".location")
+    const time = document.querySelector(".time")
+    const isp = document.querySelector(".isp")
     ipLoc.innerHTML = res.ip
+    region.innerHTML = res.location.city
+    time.innerHTML = res.location.timezone
+    isp.innerHTML = res.isp
 }

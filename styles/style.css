@@ -5,6 +5,11 @@
           box-sizing: border-box;
 }
 
+body {
+  font-family: 'Rubik', sans-serif;
+  font-size: 18px;
+}
+
 header {
   background-image: url("../images/pattern-bg.png");
   background-repeat: no-repeat;
@@ -22,7 +27,7 @@ header h1 {
   color: white;
   text-align: center;
   padding-top: 26px;
-  font-size: 26px;
+  font-size: 1.8rem;
   padding-bottom: 26px;
 }
 
@@ -63,10 +68,20 @@ form.locationDetails {
   position: relative;
 }
 
+h2 {
+  font-weight: 300;
+  font-size: 1rem;
+}
+
+h3 {
+  margin-top: 10px;
+  font-weight: 600;
+}
+
 button {
   position: absolute;
   width: 12%;
-  padding: 10px;
+  padding: 25px;
   background-color: black;
   right: 0px;
   border-bottom-right-radius: 10px;
@@ -75,8 +90,39 @@ button {
 
 input[type="search"] {
   width: 100%;
-  padding: 10px;
+  padding: 15px;
   border-radius: 10px;
   margin: auto;
+  font-size: 2rem;
+}
+
+@media screen and (min-width: 780px) {
+  header h1 {
+    padding-top: 33px;
+  }
+  form.locationDetails {
+    width: 555px;
+    margin: auto;
+  }
+  header .hero {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    padding: 40px;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+    margin-top: 70px;
+  }
+  .ipaddress {
+    position: relative;
+  }
+  .ipaddress::before {
+    content: "";
+    position: absolute;
+    height: 68px;
+    border-right: 1px solid black;
+    right: -30%;
+  }
 }
 /*# sourceMappingURL=style.css.map */

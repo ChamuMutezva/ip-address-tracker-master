@@ -65,7 +65,7 @@ form.addEventListener("submit", function (event) {
 });
 
 function getAddress2(iptracker) {
-  var apiKey, ip, res, _res$location2, lat, lng, marker, ipLoc;
+  var apiKey, ip, res, _res$location2, lat, lng, marker, ipLoc, region, time, isp;
 
   return regeneratorRuntime.async(function getAddress2$(_context2) {
     while (1) {
@@ -92,9 +92,15 @@ function getAddress2(iptracker) {
           marker = L.marker([lat, lng]).addTo(mymap); // marker.flyTo([lat,lng]).addTo(mymap)
 
           ipLoc = document.querySelector(".ip");
+          region = document.querySelector(".location");
+          time = document.querySelector(".time");
+          isp = document.querySelector(".isp");
           ipLoc.innerHTML = res.ip;
+          region.innerHTML = res.location.city;
+          time.innerHTML = res.location.timezone;
+          isp.innerHTML = res.isp;
 
-        case 15:
+        case 21:
         case "end":
           return _context2.stop();
       }
