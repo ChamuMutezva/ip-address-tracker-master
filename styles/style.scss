@@ -76,20 +76,29 @@ h3 {
 button {
     position: absolute;
     width: 12%;
-    padding: 10px;
-    background-color: black;
+    padding: 9px;
+    background-color: #000000;
     right: 0px;
-    border-bottom-right-radius: 10px;
-    border-top-right-radius: 10px;
+    border-bottom-right-radius: 15px;
+    border-top-right-radius: 15px;
     outline: none;
 }
 
 input[type="search"] {
     width: 100%;
     padding: 9px;
-    border-radius: 10px;
+    border-radius: 15px;
     margin: auto;
     font-size: 0.5rem;
+    box-shadow: 0px 50px 50px -25px rgba(0, 0, 0, 0.0983665);
+}
+
+input[type="search"]:hover,
+button:hover {
+    cursor: pointer;
+}
+button:hover{
+    background-color: hsl(0, 0%, 59%);
 }
 
 @media screen and (min-width: 1220px) {
@@ -110,7 +119,7 @@ input[type="search"] {
     }
 
     form.locationDetails {
-       width: 555px;
+        width: 555px;
     }
 
     header .hero {
@@ -140,10 +149,12 @@ input[type="search"] {
         padding: 24px;
         right: -16px;
     }
-    h2 {        
+
+    h2 {
         padding-bottom: 15px;
     }
-    h3 {        
+
+    h3 {
         font-size: 1.7rem;
         width: 85%;
     }
