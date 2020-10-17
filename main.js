@@ -41,10 +41,13 @@ getAddress()
 form.addEventListener("submit", (event) => {
     event.preventDefault();
 
-    const inputData = document.querySelector("input").value;
-    console.log(parseInt(inputData))
+    const inputElement = document.querySelector("input")
+    //const inputData = document.querySelector("input").value;
+    const inputData = inputElement.value;
+    console.log(parseInt(inputData));
     // const inputItem = "8.8.8.8";
-    getAddress2(inputData)
+    getAddress2(inputData);
+    inputElement.value = "";
 })
 async function getAddress2(iptracker) {    
     const apiKey = "apiKey=at_XvZLm5dvyEPgWUu3SSWx0TRMNraLr"

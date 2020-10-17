@@ -58,10 +58,13 @@ function getAddress(ipLocator) {
 getAddress();
 form.addEventListener("submit", function (event) {
   event.preventDefault();
-  var inputData = document.querySelector("input").value;
+  var inputElement = document.querySelector("input"); //const inputData = document.querySelector("input").value;
+
+  var inputData = inputElement.value;
   console.log(parseInt(inputData)); // const inputItem = "8.8.8.8";
 
   getAddress2(inputData);
+  inputElement.value = "";
 });
 
 function getAddress2(iptracker) {
