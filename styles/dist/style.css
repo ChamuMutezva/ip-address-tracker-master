@@ -86,7 +86,7 @@ input[type=search] {
   font-size: 0.5rem;
 }
 
-@media screen and (min-width: 780px) {
+@media screen and (min-width: 1220px) {
   header h1 {
     padding-top: 35px;
     width: 450px;
@@ -127,7 +127,7 @@ input[type=search] {
     position: absolute;
     height: 68px;
     border-right: 1px solid black;
-    right: 20%;
+    right: 5%;
   }
 
   button {
@@ -141,5 +141,6 @@ input[type=search] {
 
   h3 {
     font-size: 1.7rem;
+    width: 85%;
   }
 }
