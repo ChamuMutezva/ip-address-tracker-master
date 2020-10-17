@@ -17,18 +17,20 @@ header {
   height: 300px;
 }
 header .container {
-  width: 80%;
+  width: 82%;
   margin: auto;
 }
 header h1 {
   color: white;
   text-align: center;
   padding-top: 26px;
-  font-size: 1.8rem;
+  font-size: 1.5rem;
   padding-bottom: 26px;
+  width: 228px;
+  margin: auto;
 }
 header .hero {
-  width: 77%;
+  width: 82%;
   margin: auto;
   text-align: center;
   background-color: white;
@@ -37,10 +39,9 @@ header .hero {
   /* justify-content: center; */
   flex-wrap: nowrap;
   flex-direction: column;
-  row-gap: 40px;
+  row-gap: 15px;
   position: absolute;
   z-index: 2;
-  left: 12%;
   margin-top: 30px;
   border-radius: 16px;
   padding: 15px;
@@ -62,14 +63,13 @@ h2 {
 }
 
 h3 {
-  margin-top: 10px;
   font-weight: 600;
 }
 
 button {
   position: absolute;
   width: 12%;
-  padding: 25px;
+  padding: 19px;
   background-color: black;
   right: 0px;
   border-bottom-right-radius: 10px;
@@ -78,7 +78,7 @@ button {
 
 input[type=search] {
   width: 100%;
-  padding: 15px;
+  padding: 9px;
   border-radius: 10px;
   margin: auto;
   font-size: 2rem;
