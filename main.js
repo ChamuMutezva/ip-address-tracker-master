@@ -50,29 +50,44 @@ async function getAddress2(iptracker) {
     const apiKey = "apiKey=at_XvZLm5dvyEPgWUu3SSWx0TRMNraLr"
     const apiUrl = "https://geo.ipify.org/api/v1?"
     const ip = await fetch(apiUrl + apiKey + "&domain=" + iptracker)
+    .then((res) => {
+        if(res.status !== 200) {
+            alert("invalid input")
+        } else {
+            return res.json()
+        }
+    })
+    .then(data => {
+        console.log(data)
+        const results = data
+        console.log(results)
+        console.log(results.location)
     
-    const res = await ip.json()
-    console.log(res)
-    console.log(res.location)
+        const {
+            lat,
+            lng
+        } = results.location;
+        console.log(lat)
+        console.log(iptracker)
+    
+    
+        L.marker([lat, lng]).addTo(mymap);
+        mymap.panTo(new L.LatLng(lat, lng));
+    
+    
+        const ipLoc = document.querySelector(".ip")
+        const region = document.querySelector(".location")
+        const time = document.querySelector(".time")
+        const isp = document.querySelector(".isp")
+        ipLoc.innerHTML = results.ip
+        region.innerHTML = results.location.city
+        time.innerHTML = results.location.timezone
+        isp.innerHTML = results.isp
 
-    const {
-        lat,
-        lng
-    } = res.location;
-    console.log(lat)
-    console.log(iptracker)
-
-
-    L.marker([lat, lng]).addTo(mymap);
-    mymap.panTo(new L.LatLng(lat, lng));
-
-
-    const ipLoc = document.querySelector(".ip")
-    const region = document.querySelector(".location")
-    const time = document.querySelector(".time")
-    const isp = document.querySelector(".isp")
-    ipLoc.innerHTML = res.ip
-    region.innerHTML = res.location.city
-    time.innerHTML = res.location.timezone
-    isp.innerHTML = res.isp
+    })
+    .catch(err => {
+        console.log(err)
+    })
+    
+   
 }

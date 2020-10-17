@@ -65,8 +65,7 @@ form.addEventListener("submit", function (event) {
 });
 
 function getAddress2(iptracker) {
-  var apiKey, apiUrl, ip, res, _res$location2, lat, lng, ipLoc, region, time, isp;
-
+  var apiKey, apiUrl, ip;
   return regeneratorRuntime.async(function getAddress2$(_context2) {
     while (1) {
       switch (_context2.prev = _context2.next) {
@@ -74,32 +73,40 @@ function getAddress2(iptracker) {
           apiKey = "apiKey=at_XvZLm5dvyEPgWUu3SSWx0TRMNraLr";
           apiUrl = "https://geo.ipify.org/api/v1?";
           _context2.next = 4;
-          return regeneratorRuntime.awrap(fetch(apiUrl + apiKey + "&domain=" + iptracker));
+          return regeneratorRuntime.awrap(fetch(apiUrl + apiKey + "&domain=" + iptracker).then(function (res) {
+            if (res.status !== 200) {
+              alert("invalid input");
+            } else {
+              return res.json();
+            }
+          }).then(function (data) {
+            console.log(data);
+            var results = data;
+            console.log(results);
+            console.log(results.location);
+            var _results$location = results.location,
+                lat = _results$location.lat,
+                lng = _results$location.lng;
+            console.log(lat);
+            console.log(iptracker);
+            L.marker([lat, lng]).addTo(mymap);
+            mymap.panTo(new L.LatLng(lat, lng));
+            var ipLoc = document.querySelector(".ip");
+            var region = document.querySelector(".location");
+            var time = document.querySelector(".time");
+            var isp = document.querySelector(".isp");
+            ipLoc.innerHTML = results.ip;
+            region.innerHTML = results.location.city;
+            time.innerHTML = results.location.timezone;
+            isp.innerHTML = results.isp;
+          })["catch"](function (err) {
+            console.log(err);
+          }));
 
         case 4:
           ip = _context2.sent;
-          _context2.next = 7;
-          return regeneratorRuntime.awrap(ip.json());
 
-        case 7:
-          res = _context2.sent;
-          console.log(res);
-          console.log(res.location);
-          _res$location2 = res.location, lat = _res$location2.lat, lng = _res$location2.lng;
-          console.log(lat);
-          console.log(iptracker);
-          L.marker([lat, lng]).addTo(mymap);
-          mymap.panTo(new L.LatLng(lat, lng));
-          ipLoc = document.querySelector(".ip");
-          region = document.querySelector(".location");
-          time = document.querySelector(".time");
-          isp = document.querySelector(".isp");
-          ipLoc.innerHTML = res.ip;
-          region.innerHTML = res.location.city;
-          time.innerHTML = res.location.timezone;
-          isp.innerHTML = res.isp;
-
-        case 23:
+        case 5:
         case "end":
           return _context2.stop();
       }
