@@ -46,13 +46,11 @@ form.addEventListener("submit", (event) => {
     // const inputItem = "8.8.8.8";
     getAddress2(inputData)
 })
-async function getAddress2(iptracker) {
-    // const accessToken = `pk.eyJ1IjoiMTAwMTIxODgwMiIsImEiOiJjam1lZHppNDIwY3JuM3BwZjM3ZnNmZDJ2In0.5BIcQy3_ACs0afqvHmPbVg&ipAddress=${iptracker}`
-    const apiKey = "at_XvZLm5dvyEPgWUu3SSWx0TRMNraLr"
-   // const ip = await fetch(`https://geo.ipify.org/api/v1?apiKey=${apiKey}&ipAddress=${iptracker}`)
-  const ip =  parseInt(iptracker) ?  await fetch(`https://geo.ipify.org/api/v1?apiKey=${apiKey}&ipAddress=${iptracker}`) :
-  await fetch(`https://geo.ipify.org/api/v1?apiKey=${apiKey}&dormain=${iptracker}`)
-    // https://geo.ipify.org/api/v1?apiKey=at_XvZLm5dvyEPgWUu3SSWx0TRMNraLr&ipAddress=8.8.8.8
+async function getAddress2(iptracker) {    
+    const apiKey = "apiKey=at_XvZLm5dvyEPgWUu3SSWx0TRMNraLr"
+    const apiUrl = "https://geo.ipify.org/api/v1?"
+    const ip = await fetch(apiUrl + apiKey + "&domain=" + iptracker)
+    
     const res = await ip.json()
     console.log(res)
     console.log(res.location)
@@ -63,20 +61,13 @@ async function getAddress2(iptracker) {
     } = res.location;
     console.log(lat)
     console.log(iptracker)
-    // marker.setLatLng([lat, lng]).addTo(mymap)
-   
-     L.marker([lat, lng]).addTo(mymap);
-     mymap.panTo(new L.LatLng(lat, lng));
-    
-     // trial code
-    // L.marker([lat,lng]).update(marker);
-    // mymap.locate({setView: true});
-    // L.marker(mymap.getCenter()).addTo(mymap)    
-    
-    // end trial code
-    // marker.flyTo([lat,lng]).addTo(mymap)
 
-    const ipLoc = document.querySelector(".ip")   
+
+    L.marker([lat, lng]).addTo(mymap);
+    mymap.panTo(new L.LatLng(lat, lng));
+
+
+    const ipLoc = document.querySelector(".ip")
     const region = document.querySelector(".location")
     const time = document.querySelector(".time")
     const isp = document.querySelector(".isp")
