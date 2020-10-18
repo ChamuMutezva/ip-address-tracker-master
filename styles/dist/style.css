@@ -9,6 +9,10 @@ body {
   font-size: 18px;
 }
 
+input, select, textarea, button {
+  font-family: inherit;
+}
+
 header {
   background-image: url("../images/pattern-bg.png");
   background-repeat: no-repeat;
