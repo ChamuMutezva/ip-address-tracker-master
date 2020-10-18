@@ -1,5 +1,5 @@
 const form = document.querySelector("form")
-var mymap
+let mymap
 async function getAddress(ipLocator) {
     const accessToken = `pk.eyJ1IjoiMTAwMTIxODgwMiIsImEiOiJjam1lZHppNDIwY3JuM3BwZjM3ZnNmZDJ2In0.5BIcQy3_ACs0afqvHmPbVg&ipAddress=${ipLocator}`
     const apiKey = "at_XvZLm5dvyEPgWUu3SSWx0TRMNraLr"
@@ -24,73 +24,67 @@ async function getAddress(ipLocator) {
         accessToken: accessToken
 
     }).addTo(mymap);
-    //marker.setLatLng([lat, long]) 
-
-    //
+   
+    displayData(res)
+}
+getAddress()
+function displayData(data) {
     const ipLoc = document.querySelector(".ip")
     const region = document.querySelector(".location")
     const time = document.querySelector(".time")
     const isp = document.querySelector(".isp")
-    ipLoc.innerHTML = res.ip
-    region.innerHTML = res.location.city
-    time.innerHTML = res.location.timezone
-    isp.innerHTML = res.isp
+
+    ipLoc.innerHTML = data.ip
+    region.innerHTML = data.location.city
+    time.innerHTML = data.location.timezone
+    isp.innerHTML = data.isp
 }
-getAddress()
 
 form.addEventListener("submit", (event) => {
     event.preventDefault();
 
-    const inputElement = document.querySelector("input")
-    //const inputData = document.querySelector("input").value;
+    const inputElement = document.querySelector("input");    
     const inputData = inputElement.value;
     console.log(parseInt(inputData));
     // const inputItem = "8.8.8.8";
     getAddress2(inputData);
     inputElement.value = "";
 })
-async function getAddress2(iptracker) {    
+async function getAddress2(iptracker) {
     const apiKey = "apiKey=at_XvZLm5dvyEPgWUu3SSWx0TRMNraLr"
     const apiUrl = "https://geo.ipify.org/api/v1?"
     const ip = await fetch(apiUrl + apiKey + "&domain=" + iptracker)
-    .then((res) => {
-        if(res.status !== 200) {
-            alert("invalid input")
-        } else {
-            return res.json()
-        }
-    })
-    .then(data => {
-        console.log(data)
-        const results = data
-        console.log(results)
-        console.log(results.location)
-    
-        const {
-            lat,
-            lng
-        } = results.location;
-        console.log(lat)
-        console.log(iptracker)
-    
-    
-        L.marker([lat, lng]).addTo(mymap);
-        mymap.panTo(new L.LatLng(lat, lng));
-    
-    
-        const ipLoc = document.querySelector(".ip")
-        const region = document.querySelector(".location")
-        const time = document.querySelector(".time")
-        const isp = document.querySelector(".isp")
-        ipLoc.innerHTML = results.ip
-        region.innerHTML = results.location.city
-        time.innerHTML = results.location.timezone
-        isp.innerHTML = results.isp
+        .then((res) => {
+            if (res.status !== 200) {
+                alert("invalid input")
+            } else {
+                return res.json()
+            }
+        })
+        .then(data => {
+            console.log(data)
+            const results = data
+            console.log(results)
+            console.log(results.location)
 
-    })
-    .catch(err => {
-        console.log(err)
-    })
-    
-   
+            const {
+                lat,
+                lng
+            } = results.location;
+            console.log(lat)
+            console.log(iptracker)
+
+
+            L.marker([lat, lng]).addTo(mymap);
+            //change and move map to new entered location
+            mymap.panTo(new L.LatLng(lat, lng));
+           
+            displayData(results)
+
+        })
+        .catch(err => {
+            console.log(err)
+        })
+
+
 }
