@@ -10,6 +10,10 @@ body {
   font-size: 18px;
 }
 
+input, select, textarea, button {
+  font-family: inherit;
+}
+
 header {
   background-image: url("../images/pattern-bg.png");
   background-repeat: no-repeat;
@@ -88,6 +92,7 @@ button {
   border-bottom-right-radius: 15px;
   border-top-right-radius: 15px;
   outline: none;
+  font-size: 1rem;
 }
 
 input[type="search"] {
@@ -95,7 +100,7 @@ input[type="search"] {
   padding: 9px;
   border-radius: 15px;
   margin: auto;
-  font-size: 0.5rem;
+  font-size: 1rem;
   -webkit-box-shadow: 0px 50px 50px -25px rgba(0, 0, 0, 0.0983665);
           box-shadow: 0px 50px 50px -25px rgba(0, 0, 0, 0.0983665);
 }
